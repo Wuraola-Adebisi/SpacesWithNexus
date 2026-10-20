@@ -51,7 +51,7 @@ export function FurniturePanel(p: FurnitureProps) {
           <TextField label="Name" value={active.name} onCommit={(name) => p.onRename(active.id, name)} />
           <div className="field-row">
             <NumberField label="Width" unit="cm" value={active.width} min={10} max={600} onCommit={(v) => p.onResize(active.id, 'width', v)} />
-            <NumberField label="Depth" unit="cm" value={active.depth} min={10} max={600} onCommit={(v) => p.onResize(active.id, 'depth', v)} />
+            <NumberField label="Front to back" unit="cm" value={active.depth} min={10} max={600} onCommit={(v) => p.onResize(active.id, 'depth', v)} />
           </div>
           <div className="field-row">
             <NumberField label="Distance from left wall" unit="cm" value={active.x} min={0} max={Math.max(0, p.room.width - f.w)} onCommit={(v) => p.onMoveTo(active.id, v, active.y)} />
