@@ -4,7 +4,7 @@ import { Mark } from '../Mark'
 import { Link } from '../router'
 
 const nav = [
-  { to: '/examples', label: 'Examples' },
+  { to: '/examples', label: 'Room Ideas' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ]
@@ -38,7 +38,7 @@ export function SiteFooter() {
           <p className="footer-heading">Explore Spaces with Nexus</p>
           <nav className="footer-links" aria-label="Footer">
             <Link to="/workspace">Room planner</Link>
-            <Link to="/examples">Examples</Link>
+            <Link to="/examples">Room Ideas</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/privacy">Privacy</Link>
