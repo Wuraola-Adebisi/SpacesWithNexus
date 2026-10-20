@@ -3,6 +3,7 @@ import { Expand, Grid2X2, Printer, Redo2, Ruler, Undo2, X, ZoomIn, ZoomOut } fro
 import { BRAND } from '../brand'
 import { Mark } from '../Mark'
 import { Link } from '../router'
+import { SiteFooter } from '../site/Layout'
 import FloorPlan, { planGeometry } from './FloorPlan'
 import { FurniturePanel, RoomPanel } from './Panels'
 import SuggestPanel from './SuggestPanel'
@@ -281,6 +282,8 @@ export default function Planner() {
           />
         </aside>
       </div>
+
+      <SiteFooter />
 
       {notice ? (
         <div className="toast" role="status">
