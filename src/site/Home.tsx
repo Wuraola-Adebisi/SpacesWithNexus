@@ -31,17 +31,17 @@ const features = [
   {
     number: '01',
     title: 'Start with the room you have',
-    body: 'Enter your room dimensions to create a scaled floor plan. No idealised showroom, just a practical starting point based on your space.',
+    body: 'Add the width and length of your room to get a simple floor plan based on the space you actually have.',
   },
   {
     number: '02',
     title: 'Make your furniture part of the plan',
-    body: 'Add the pieces you own, adjust their measurements, then move and rotate them on the plan to see how the arrangement comes together.',
+    body: 'Add your bed, desk, wardrobe and other pieces. Put in their measurements, then move them around on the plan to see how they might fit.',
   },
   {
     number: '03',
     title: 'Try another way',
-    body: 'Describe what you want the room to do and explore an AI-assisted layout proposal shaped by your dimensions, furniture and goal.',
+    body: 'Tell the planner what you are trying to change and get another layout idea to consider. You stay in charge of what works for you.',
   },
 ]
 
@@ -105,7 +105,7 @@ export default function Home() {
           <p className="eyebrow">Room planning for real life</p>
           <h1>A little more room to live.</h1>
           <p className="lede">
-            Plan your space around the room you have, the furniture you own, and the life you want it to make room for. Explore an arrangement on a measured floor plan before you start moving things.
+            Not sure where the bed should go, whether that new desk will fit, or how to make more room? Start with your measurements, try a few arrangements, and see what might work before you move a thing.
           </p>
           <div className="hero-actions">
             <Link to="/workspace" className="btn btn-primary btn-lg">Plan your room</Link>
@@ -121,9 +121,9 @@ export default function Home() {
           <div className="wrap split">
             <div className="lead">
               <p className="eyebrow">Start with what is real</p>
-              <h2>A room has to do more than look good.</h2>
-              <p>It might need to fit a bed, a desk, storage, and the everyday space to move around. You should not have to guess your way through every possible arrangement.</p>
-              <p className="lead-last">Spaces with Nexus helps you think through the options before you put your back into moving everything.</p>
+              <h2>Make your room work for your real life.</h2>
+              <p>Maybe you need a place to work, more storage, or simply a bit more space to move around. Working it out in your head is hard. Seeing the options can make it easier.</p>
+              <p className="lead-last">Spaces with Nexus lets you try ideas on a floor plan first, so you can make a plan before you start lifting and shifting.</p>
             </div>
             <ul className="rows">
               {features.map((f) => (
@@ -146,8 +146,8 @@ export default function Home() {
             <div className="ai-copy">
               <p className="eyebrow">Think it through before you move it</p>
               <h2>See what could change.</h2>
-              <p>Tell Spaces with Nexus what you want your room to do. AI-assisted suggestions give you another arrangement to consider, using your room dimensions, furniture details and goal as context.</p>
-              <p>It is a proposal, not a verdict. Review the layout, check any flagged fit issues, and decide what makes sense for your space and the way you live.</p>
+              <p>Tell us what you want your room to do differently. The planner can suggest another arrangement based on your room size, furniture and what you have in mind.</p>
+              <p>Think of it as a starting point, not a set of instructions. Check the suggested layout, look out for fit warnings, and choose what makes sense for your home.</p>
               <Link to="/workspace" className="btn btn-primary">Explore a layout</Link>
             </div>
             <LayoutComparison />
@@ -160,7 +160,7 @@ export default function Home() {
           <div className="wrap">
             <div className="moments-heading">
               <p className="eyebrow">Useful before the heavy lifting</p>
-              <h2>For the changes you are thinking about.</h2>
+              <h2>For the room questions on your mind.</h2>
             </div>
             <div className="moment-grid">
               {moments.map((moment, i) => (
@@ -176,7 +176,7 @@ export default function Home() {
       </Reveal>
 
       <Reveal>
-        <CtaBand title="Start with your room. Explore what could work." />
+        <CtaBand title="Give your room a try before you move a thing." />
       </Reveal>
     </main>
   )
