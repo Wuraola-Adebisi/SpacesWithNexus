@@ -4,11 +4,24 @@ const normalize = (p: string) => p.replace(/\/+$/, '') || '/'
 const currentPath = () => normalize(window.location.pathname)
 
 export function navigate(to: string) {
-  if (normalize(to) !== currentPath()) {
+  const [pathname, hash] = to.split('#')
+  const targetPath = normalize(pathname || currentPath())
+  const hasHash = Boolean(hash)
+
+  if (targetPath !== currentPath() || window.location.hash !== (hasHash ? `#${hash}` : '')) {
     window.history.pushState({}, '', to)
     window.dispatchEvent(new PopStateEvent('popstate'))
   }
-  window.scrollTo(0, 0)
+
+  if (hasHash) {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+    })
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 }
 
 export function usePath() {
