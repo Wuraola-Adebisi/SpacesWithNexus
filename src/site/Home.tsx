@@ -100,28 +100,20 @@ function LayoutComparison() {
 export default function Home() {
   return (
     <main>
-      <section className="wrap hero hero-stacked">
+      <section className="wrap hero">
         <div className="hero-copy">
           <p className="eyebrow">Room planning for real life</p>
-          <h1>A little more room <span>to live.</span></h1>
-          <div className="hero-intro">
-            <p className="lede">
-              Make your room work with the space you have and the things you own. Try an arrangement on a measured floor plan before you start moving everything.
-            </p>
-            <div className="hero-actions">
-              <Link to="/workspace" className="btn btn-primary btn-lg">Plan your room</Link>
-              <Link to="/how-it-works" className="text-link">See how it works</Link>
-            </div>
+          <h1>A little more room to live.</h1>
+          <p className="lede">
+            Plan your space around the room you have, the furniture you own, and the life you want it to make room for. Explore an arrangement on a measured floor plan before you start moving things.
+          </p>
+          <div className="hero-actions">
+            <Link to="/workspace" className="btn btn-primary btn-lg">Plan your room</Link>
+            <Link to="/how-it-works" className="text-link">See how it works</Link>
           </div>
           <p className="hero-reassurance">Your room. Your furniture. Your call.</p>
         </div>
-        <div className="hero-workspace">
-          <div className="hero-workspace-heading">
-            <span><strong>Start by exploring</strong><small>A bedroom, 420 × 340 cm</small></span>
-            <span className="hero-workspace-note"><span className="live-dot" /> Interactive floor plan</span>
-          </div>
-          <HeroPlanner />
-        </div>
+        <HeroPlanner />
       </section>
 
       <Reveal>
