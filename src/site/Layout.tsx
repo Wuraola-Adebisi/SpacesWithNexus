@@ -5,7 +5,8 @@ import { Link } from '../router'
 
 const nav = [
   { to: '/how-it-works', label: 'How it works' },
-  { to: '/about', label: 'About us' },
+  { to: '/#use-cases', label: 'Use cases' },
+  { to: '/about', label: 'Our approach' },
 ]
 
 export function SiteHeader({ path }: { path: string }) {
@@ -17,7 +18,7 @@ export function SiteHeader({ path }: { path: string }) {
           <Link key={n.to} to={n.to} aria-current={path === n.to ? 'page' : undefined}>{n.label}</Link>
         ))}
       </nav>
-      <Link to="/workspace" className="btn btn-primary btn-sm header-cta">Open planner</Link>
+      <Link to="/workspace" className="btn btn-primary btn-sm header-cta">Plan a room</Link>
     </header>
   )
 }
@@ -36,7 +37,7 @@ export function SiteFooter() {
           <nav className="footer-links" aria-label="Footer">
             <Link to="/workspace">Room planner</Link>
             <Link to="/how-it-works">How it works</Link>
-            <Link to="/about">About us</Link>
+            <Link to="/about">Our approach</Link>
             <Link to="/privacy">Privacy</Link>
           </nav>
         </div>
