@@ -1,5 +1,6 @@
 /* App shell */
-.app { height: 100dvh; display: grid; grid-template-rows: auto minmax(0, 1fr); background: var(--paper); }
+.app { min-height: 100dvh; background: var(--paper); }
+.app-body { min-height: calc(100dvh - 58px); }
 .app-bar { display: flex; align-items: center; gap: 16px; padding: 8px 16px; background: var(--surface); border-bottom: 1px solid var(--line); }
 .app-plan { display: flex; flex-direction: column; min-width: 0; margin-right: auto; padding-left: 16px; border-left: 1px solid var(--line); line-height: 1.25; }
 .app-plan strong { overflow: hidden; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
