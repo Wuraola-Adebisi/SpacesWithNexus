@@ -1,57 +1,27 @@
 # Spaces with Nexus
 
-Spaces with Nexus is a room-planning product that helps people make more considered decisions about their living and working spaces. Enter room measurements, arrange the furniture you own on a scaled floor plan, and explore AI-assisted layout proposals before moving anything.
+[Spaces with Nexus](https://spaceswithnexus.com/) helps people make more confident decisions about how to arrange their living and working spaces. Plan a room before moving furniture, see how different pieces fit together, and explore ways to make better use of the space you have.
 
-## Product capabilities
+## What you can do
 
-- Build a floor plan using room dimensions in centimetres
-- Add, resize, rotate, move and arrange furniture
-- Snap positions to a 5 cm grid and align furniture with room walls
-- Identify overlapping pieces and furniture extending beyond room boundaries
-- Generate layout proposals from a written goal and preview them before applying
-- Undo and redo layout changes, save plans in the current browser, and print or export a JSON copy
+- Create a room plan using your room's measurements.
+- Add furniture and adjust its size, position, and orientation.
+- Spot furniture that overlaps or extends beyond the room.
+- Try starter layouts for common situations, including a small bedroom, a desk setup, moving day, and working from home.
+- Save your plan in your browser, then print it or export a copy.
 
-## Technology
+Spaces with Nexus is designed to make room planning feel more approachable. You do not need to be an interior designer to think through your options and make a plan that works for you.
 
-- React, TypeScript and Vite
-- SVG floor plan with CSS design tokens in `src/styles/base.css`
-- Vercel serverless function for AI-assisted layout suggestions
+## What's coming next
 
-## Project structure
+We're working toward AI-powered layout suggestions that take room dimensions, furniture measurements, and your goals into account. The aim is to help you explore practical arrangements, compare options, and decide which layout makes the most sense for your space. This feature is still in development and is not connected yet.
 
-```
-api/suggest-layout.ts   Serverless route for layout suggestions
-src/planner/            Planner state, floor plan drawing, geometry and storage
-src/site/               Home, how it works, about and privacy pages
-src/styles/             Tokens and base styles, site styles, planner styles
-src/brand.ts            Product name and storage keys
-```
+Over time, we also want to make plans more useful for real rooms by accounting for features such as doors and windows and offering clearer guidance on how furniture fits into everyday movement through a space.
 
-## Local development
+## A note about planning
 
-```bash
-npm install
-npm run dev
-```
+For now, plans are saved in the browser where you create them. Measure your room and furniture carefully, and check the proposed arrangement in your actual space before moving anything. The planner can flag overlaps and furniture outside the room, but it does not currently assess door access, walking clearance, accessibility, or building-code requirements.
 
-Room editing, furniture placement, local saving and export work without an AI API key. To run the serverless layout suggestion endpoint locally, use the Vercel CLI:
+## Visit Spaces with Nexus
 
-```bash
-npx vercel dev
-```
-
-Set `OPENAI_API_KEY` in the Vercel project environment. `OPENAI_MODEL` is optional and defaults to `gpt-4.1-mini`. Keep the API key out of any `VITE_*` variable and out of the repository.
-
-## Deployment
-
-The production domain is [spaceswithnexus.com](https://spaceswithnexus.com/). `vercel.json` rewrites non-API paths to `index.html`, allowing direct links such as `/workspace` and `/how-it-works` to work after a refresh.
-
-## Planning responsibly
-
-Furniture dimensions are entered manually, so measure your room and furniture carefully. Doors, windows and other fixed features cannot currently be placed on the plan. The planner flags overlaps and furniture outside the room, but does not verify walkway clearance, door access, accessibility requirements or building-code compliance. Review the proposed layout in the real space before moving furniture.
-
-Plans are saved in the current browser. They are not attached to an account or automatically synced between devices; use the export or print options to keep a copy.
-
-## Brand
-
-The product name and storage keys are defined in `src/brand.ts`.
+Explore the planner at [spaceswithnexus.com](https://spaceswithnexus.com/).
