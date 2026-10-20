@@ -114,6 +114,69 @@ export function Privacy() {
   )
 }
 
+const examples = [
+  { number: '01', title: 'Make a small bedroom feel less cramped', situation: 'Your bed, wardrobe and desk all compete for the same floor space.', approach: 'Measure the room, add the furniture you already own, then try moving pieces around on a scaled plan before doing the heavy lifting.', takeaway: 'See where the room may feel more open and where the furniture could fit.' },
+  { number: '02', title: 'Check whether that new desk will fit', situation: 'You have found a desk you like, but you are not sure there is room for it.', approach: 'Enter the desk measurements alongside your existing furniture and see how the pieces sit within the room.', takeaway: 'Make a more informed decision before you buy or bring it home.' },
+  { number: '03', title: 'Plan a move before moving day', situation: 'You are moving into a new place and trying to work out what can go where.', approach: 'Start with the new room dimensions, add the bigger furniture, and explore a few possible arrangements.', takeaway: 'Arrive with a plan instead of figuring everything out while carrying boxes.' },
+  { number: '04', title: 'Make room for working from home', situation: 'Your room needs to handle work and everyday life without feeling like an office all the time.', approach: 'Try different positions for a desk, chair and storage, keeping the room’s actual size in mind.', takeaway: 'Explore options for fitting work into the space you already have.' },
+]
+
+export function Examples() {
+  return (
+    <main className="examples-page">
+      <PageHead title="Real rooms. Real-life decisions.">
+        You do not need to be an interior designer to make a room work better. Start with the space you have and explore a few options before moving, buying or rearranging anything.
+      </PageHead>
+      <section className="wrap examples-intro">
+        <p className="eyebrow">A few ways to use the planner</p>
+        <h2>Start with the thing you are trying to figure out.</h2>
+      </section>
+      <section className="wrap examples-grid">
+        {examples.map((item) => (
+          <article className="example-card" key={item.number}>
+            <div className="example-card-top"><span>{item.number}</span><span>ROOM PLANNING</span></div>
+            <h2>{item.title}</h2>
+            <div className="example-detail"><h3>The situation</h3><p>{item.situation}</p></div>
+            <div className="example-detail"><h3>Try this</h3><p>{item.approach}</p></div>
+            <div className="example-takeaway"><strong>What you get</strong><p>{item.takeaway}</p></div>
+            <Link to="/workspace" className="text-link">Try it with your room</Link>
+          </article>
+        ))}
+      </section>
+      <section className="wrap examples-note">
+        <p><strong>A useful note:</strong> the planner works from the measurements you enter. Measure carefully, and check doors, windows, walking space and other details in the actual room before committing to an arrangement.</p>
+      </section>
+      <CtaBand title="Your room does not need to be perfect to get started." />
+    </main>
+  )
+}
+
+export function Contact() {
+  return (
+    <main className="contact-page">
+      <PageHead title="Tell us what you are trying to make room for.">
+        Have a question, an idea, or a room that is proving difficult to arrange? We would like to hear what you are working on.
+      </PageHead>
+      <section className="wrap contact-grid">
+        <div className="contact-panel contact-panel-primary">
+          <p className="eyebrow">Start with the room</p>
+          <h2>Sometimes the easiest way to explain it is to try it.</h2>
+          <p>Open the planner, add your room measurements and furniture, and explore a layout. You can also use the contact link to send a note or question.</p>
+          <Link to="/workspace" className="btn btn-primary">Open the room planner</Link>
+        </div>
+        <div className="contact-panel">
+          <p className="eyebrow">Get in touch</p>
+          <h2>Questions and feedback</h2>
+          <p>We welcome feedback about the planning experience, ideas for making it more useful, and questions about how it works.</p>
+          <a className="contact-email" href="mailto:contact@spaceswithnexus.com">contact@spaceswithnexus.com</a>
+          <p className="contact-small">For the quickest help, include what you were trying to do and what happened.</p>
+        </div>
+      </section>
+      <CtaBand title="Let’s make room for a better plan." />
+    </main>
+  )
+}
+
 export function NotFound() {
   return (
     <main>
