@@ -115,10 +115,10 @@ export function Privacy() {
 }
 
 const examples = [
-  { number: '01', title: 'Make a small bedroom feel less cramped', situation: 'Your bed, wardrobe and desk all compete for the same floor space.', approach: 'Measure the room, add the furniture you already own, then try moving pieces around on a scaled plan before doing the heavy lifting.', takeaway: 'See where the room may feel more open and where the furniture could fit.', image: 'https://images.unsplash.com/photo-1718111990329-cfe23a502e06?auto=format&fit=crop&w=1200&q=80', imageAlt: 'A calm, carefully arranged bedroom with a bed and natural light', credit: 'Lawless Capture', creditUrl: 'https://unsplash.com/photos/a-bedroom-with-a-bed-and-a-window-teoPtsozZf8' },
-  { number: '02', title: 'Check whether that new desk will fit', situation: 'You have found a desk you like, but you are not sure there is room for it.', approach: 'Enter the desk measurements alongside your existing furniture and see how the pieces sit within the room.', takeaway: 'Make a more informed decision before you buy or bring it home.', image: 'https://images.unsplash.com/photo-1575318634028-6a0cfcb60c59?auto=format&fit=crop&w=1200&q=80', imageAlt: 'A home office workspace with a laptop, monitor and wooden desk', credit: 'Max Andrey', creditUrl: 'https://unsplash.com/photos/home-office-workspace-with-wooden-desk-TlRQin0iwjE' },
-  { number: '03', title: 'Plan a move before moving day', situation: 'You are moving into a new place and trying to work out what can go where.', approach: 'Start with the new room dimensions, add the bigger furniture, and explore a few possible arrangements.', takeaway: 'Arrive with a plan instead of figuring everything out while carrying boxes.', image: 'https://images.unsplash.com/photo-1560185009-5bf9f2849488?auto=format&fit=crop&w=1200&q=80', imageAlt: 'A welcoming living room with furniture arranged around the available space', credit: 'Francesca Tosolini', creditUrl: 'https://unsplash.com/photos/interior-of-a-living-room-XyGvEj587Mc' },
-  { number: '04', title: 'Make room for working from home', situation: 'Your room needs to handle work and everyday life without feeling like an office all the time.', approach: 'Try different positions for a desk, chair and storage, keeping the room’s actual size in mind.', takeaway: 'Explore options for fitting work into the space you already have.', image: 'https://images.unsplash.com/photo-1787112824729-f9328fe55661?auto=format&fit=crop&w=1200&q=80', imageAlt: 'A sunlit home office desk with a computer monitor, notebooks and a desk lamp', credit: 'Huy Phan', creditUrl: 'https://unsplash.com/photos/home-office-desk-with-computer-monitor-j6Xhy6Zr9mQ' },
+  { number: '01', starter: 'small-bedroom', title: 'Make a small bedroom feel less cramped', situation: 'Your bed, wardrobe and desk all compete for the same floor space.', approach: 'Measure the room, add the furniture you already own, then try moving pieces around on a scaled plan before doing the heavy lifting.', takeaway: 'See where the room may feel more open and where the furniture could fit.', image: 'https://images.unsplash.com/photo-1718111990329-cfe23a502e06?auto=format&fit=crop&w=1200&q=80', imageAlt: 'A calm, carefully arranged bedroom with a bed and natural light', credit: 'Lawless Capture', creditUrl: 'https://unsplash.com/photos/a-bedroom-with-a-bed-and-a-window-teoPtsozZf8' },
+  { number: '02', starter: 'desk-fit', title: 'Check whether that new desk will fit', situation: 'You have found a desk you like, but you are not sure there is room for it.', approach: 'Enter the desk measurements alongside your existing furniture and see how the pieces sit within the room.', takeaway: 'Make a more informed decision before you buy or bring it home.', image: 'https://images.unsplash.com/photo-1575318634028-6a0cfcb60c59?auto=format&fit=crop&w=1200&q=80', imageAlt: 'A home office workspace with a laptop, monitor and wooden desk', credit: 'Max Andrey', creditUrl: 'https://unsplash.com/photos/home-office-workspace-with-wooden-desk-TlRQin0iwjE' },
+  { number: '03', starter: 'moving-day', title: 'Plan a move before moving day', situation: 'You are moving into a new place and trying to work out what can go where.', approach: 'Start with the new room dimensions, add the bigger furniture, and explore a few possible arrangements.', takeaway: 'Arrive with a plan instead of figuring everything out while carrying boxes.', image: 'https://images.unsplash.com/photo-1560185009-5bf9f2849488?auto=format&fit=crop&w=1200&q=80', imageAlt: 'A welcoming living room with furniture arranged around the available space', credit: 'Francesca Tosolini', creditUrl: 'https://unsplash.com/photos/interior-of-a-living-room-XyGvEj587Mc' },
+  { number: '04', starter: 'work-from-home', title: 'Make room for working from home', situation: 'Your room needs to handle work and everyday life without feeling like an office all the time.', approach: 'Try different positions for a desk, chair and storage, keeping the room’s actual size in mind.', takeaway: 'Explore options for fitting work into the space you already have.', image: 'https://images.unsplash.com/photo-1787112824729-f9328fe55661?auto=format&fit=crop&w=1200&q=80', imageAlt: 'A sunlit home office desk with a computer monitor, notebooks and a desk lamp', credit: 'Huy Phan', creditUrl: 'https://unsplash.com/photos/home-office-desk-with-computer-monitor-j6Xhy6Zr9mQ' },
 ]
 
 export function Examples() {
@@ -143,7 +143,7 @@ export function Examples() {
             <div className="example-detail"><h3>The situation</h3><p>{item.situation}</p></div>
             <div className="example-detail"><h3>Try this</h3><p>{item.approach}</p></div>
             <div className="example-takeaway"><strong>What you get</strong><p>{item.takeaway}</p></div>
-            <Link to="/workspace" className="text-link">Try it with your room</Link>
+            <Link to={`/workspace?starter=${item.starter}`} className="text-link">Open this starter floor plan</Link>
           </article>
         ))}
       </section>
@@ -151,6 +151,38 @@ export function Examples() {
         <p><strong>A useful note:</strong> the planner works from the measurements you enter. Measure carefully, and check doors, windows, walking space and other details in the actual room before committing to an arrangement.</p>
       </section>
       <CtaBand title="Your room does not need to be perfect to get started." />
+    </main>
+  )
+}
+
+const termsSections = [
+  ['Using the planner', 'Spaces with Nexus helps you explore room dimensions, furniture placement and possible layouts. You may use it for personal, non-commercial room-planning purposes, subject to these terms and applicable law. You are responsible for the information you enter and for how you use the results.'],
+  ['Measurements and real-world decisions', 'The floor plan and fit checks are planning aids, not a guarantee that furniture will fit or that a layout is safe or practical in the physical room. Measurements, product dimensions, doors, windows, sockets, access routes, ceiling height and other conditions may affect the result. Measure and verify important details yourself before buying, lifting, installing or moving anything.'],
+  ['AI-assisted suggestions', 'If you request an AI-assisted layout, the details you provide may be processed by our layout service and its AI provider to generate a proposal. Suggestions can be incomplete, inaccurate or unsuitable for your room. Review them carefully; they are optional ideas, not professional interior-design, architectural, engineering or safety advice. Do not rely on them as the sole basis for a purchase or physical change.'],
+  ['Plans and your responsibility', 'Plans you save are stored in your browser on the device you use. You are responsible for keeping your own copies of important plans. Clearing browser data, changing browsers or using another device may make saved plans unavailable. Do not enter confidential or sensitive information into the planner or an AI prompt.'],
+  ['Acceptable use', 'Do not misuse the service, attempt to disrupt its operation, bypass security, interfere with other users, introduce malicious code, or use the service unlawfully. We may restrict access where reasonably necessary to protect the service or its users.'],
+  ['Ownership and service availability', 'Spaces with Nexus and its original site content, branding and software are protected by applicable intellectual-property laws. These terms do not transfer ownership of them to you. We may change, suspend or discontinue features as the service develops, and we do not guarantee uninterrupted availability or that every feature will always work on every device.'],
+  ['Disclaimers and liability', 'The service is provided on an “as available” basis to the extent permitted by law. We do not warrant that layouts, measurements, fit checks or AI suggestions will be error-free or suitable for every situation. To the extent permitted by applicable law, Spaces with Nexus is not liable for indirect or consequential loss, or for loss or damage arising from reliance on an unverified layout. Nothing in these terms excludes liability that cannot lawfully be excluded.'],
+  ['Third-party services', 'The website may rely on hosting, analytics or AI providers. Those providers may have their own terms and privacy practices. Our handling of information is explained in the Privacy page.'],
+  ['Changes to these terms', 'We may update these terms as the service changes. The “Last updated” date indicates when the current version was published. Your continued use of the service after an update means you accept the updated terms, to the extent permitted by law.'],
+  ['Contact', 'Questions about these terms can be sent to contact@spaceswithnexus.com.'],
+]
+
+export function Terms() {
+  return (
+    <main>
+      <PageHead title="Terms of Service">
+        The terms for using Spaces with Nexus. Please read them before relying on a plan or layout suggestion.
+      </PageHead>
+      <section className="wrap policy">
+        <p className="fine-print">Last updated: 20 October 2026</p>
+        {termsSections.map(([title, text]) => (
+          <article key={title}>
+            <h2>{title}</h2>
+            <p>{text}</p>
+          </article>
+        ))}
+      </section>
     </main>
   )
 }
