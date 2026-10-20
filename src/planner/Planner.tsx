@@ -8,6 +8,7 @@ import FloorPlan, { planGeometry } from './FloorPlan'
 import { FurniturePanel, RoomPanel } from './Panels'
 import SuggestPanel from './SuggestPanel'
 import { SAMPLE_ROOM, sampleItems, uid, type CatalogEntry } from './catalog'
+import { getStarterPlan } from './starters'
 import { findIssues, footprint, placeItem, rotateItem } from './geometry'
 import { loadPlan, savePlan } from './storage'
 import type { Item, Room } from './types'
@@ -29,7 +30,8 @@ function useBox<T extends HTMLElement>() {
 }
 
 export default function Planner() {
-  const [initial] = useState(loadPlan)
+  const starterId = new URLSearchParams(window.location.search).get('starter')
+  const [initial] = useState(() => getStarterPlan(starterId) ?? loadPlan())
   const [room, setRoom] = useState<Room>(initial?.room ?? SAMPLE_ROOM)
   const [doc, setDoc] = useState<Doc>({ items: initial?.items ?? sampleItems(), past: [], future: [] })
   const { items } = doc
@@ -40,12 +42,16 @@ export default function Planner() {
   const [grid, setGrid] = useState(true)
   const [measures, setMeasures] = useState(true)
   const [saved, setSaved] = useState(Boolean(initial))
-  const [notice, setNotice] = useState('')
+  const [notice, setNotice] = useState(() => getStarterPlan(starterId) ? 'Starter floor plan loaded. Adjust it to match your room.' : '')
   const [stageRef, box] = useBox<HTMLDivElement>()
   const dragBase = useRef<Item[] | null>(null)
 
   const issues = useMemo(() => findIssues(items, room), [items, room])
   const flagged = useMemo(() => new Set(issues.flatMap((i) => i.ids)), [issues])
+
+  useEffect(() => {
+    if (getStarterPlan(starterId)) window.history.replaceState({}, '', '/workspace')
+  }, [starterId])
 
   useEffect(() => {
     if (!notice) return
