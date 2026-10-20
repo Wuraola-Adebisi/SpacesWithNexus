@@ -12,28 +12,28 @@ function PageHead({ title, children }: { title: string; children: string }) {
 
 const steps = [
   {
-    title: 'Measure your room',
-    body: 'Open the Room tab, name the space, and enter its width and length in centimetres. Start with the provided room layout or enter your own measurements.',
+    title: 'Start with your room',
+    body: 'Enter the width and length of your space in centimetres. A measured starting point helps you make decisions based on the room you have, not an idealised picture.',
   },
   {
     title: 'Add the furniture',
-    body: 'Choose the pieces you want to arrange, then edit each item’s name, width and depth to match your furniture. Catalogue measurements are starting points, so use your own measurements for a more accurate plan.',
+    body: 'Choose the pieces you want to arrange, then update their names and dimensions to match your own furniture. For the most useful plan, measure each piece before placing it.',
   },
   {
-    title: 'Arrange, then ask AI',
-    body: 'Move and rotate pieces on the plan, or describe what you want to improve and ask NEXUS for a proposed arrangement. Preview the suggestion, check any flagged overlaps, and apply it only if it works for you.',
+    title: 'Explore a better arrangement',
+    body: 'Move and rotate pieces on the floor plan, or describe what you want to change and request an AI-assisted layout proposal. Preview the positions, review flagged fit issues, and decide what to use.',
   },
   {
-    title: 'Save your layout',
-    body: 'Save the plan in your current browser, or use Print / Save PDF to keep a readable copy you can share. Plans are stored locally and do not automatically sync between devices.',
+    title: 'Refine your plan',
+    body: 'Adjust the layout until it reflects your intentions. Save your plan in your browser or print a copy to refer to while you make changes in the room.',
   },
 ]
 
 export function HowItWorks() {
   return (
     <main>
-      <PageHead title="From room measurements to a layout">
-        Combine a measured floor plan with AI-generated ideas to explore arrangements for the room and furniture you actually have.
+      <PageHead title="A clearer plan for your space">
+        From the first measurement to the final arrangement, Spaces with Nexus helps you think through your room before you start moving furniture.
       </PageHead>
       <section className="wrap">
         <ol className="steps">
@@ -49,34 +49,34 @@ export function HowItWorks() {
         </ol>
       </section>
       <div className="spacer" />
-      <CtaBand title="Start with the room you have." />
+      <CtaBand title="A little planning can change the whole room." />
     </main>
   )
 }
 
-const gaps = [
-  ['Doors, windows and fixed features', 'These are not editable on the plan yet. Account for door swings, windows, radiators and other fixed features when measuring and reviewing your layout.'],
-  ['Furniture measurements', 'Furniture is added and measured manually. Check each item’s real width and depth before relying on its placement.'],
-  ['AI suggestions', 'AI-generated arrangements are proposals based on the room dimensions, furniture details and goal you provide. Review the positions carefully, and check real-world access and clearance before moving anything.'],
-  ['Saving and sharing', 'Plans are stored in your current browser. Use Print / Save PDF to create a readable copy for sharing or safekeeping. To continue editing on another device, you will need to recreate the plan there.'],
-  ['Clearance and building requirements', 'NEXUS flags overlaps and furniture outside the room. It does not verify walkway clearance, door access, accessibility requirements or building-code compliance. Review these before moving furniture.'],
+const principles = [
+  ['Designed around real spaces', 'Useful room planning starts with the dimensions of the room and the furniture that needs to live in it. Spaces with Nexus is built around those practical details, helping people move from vague ideas to layouts they can evaluate.'],
+  ['Clarity before commitment', 'Whether you are refreshing a room, making space for work, or deciding where a new piece of furniture might go, planning ahead can make the next step more deliberate. We want the process to feel approachable without losing sight of the measurements that matter.'],
+  ['Technology with a practical purpose', 'Our planner combines a scaled floor plan and basic fit checks with AI-assisted layout ideas. The technology is there to help people explore options, not to make the decision for them. Every proposed arrangement remains something to review and refine.'],
+  ['Built to keep improving', 'We are developing Spaces with Nexus around a straightforward belief: planning a space should be easier to understand and more useful in everyday life. We continue to refine the experience around the real decisions people face when arranging a room.'],
 ]
 
 export function About() {
   return (
     <main>
-      <PageHead title="Make room for the way you live">
-        NEXUS combines measured room planning with AI-assisted layout ideas, helping you think through a setup before you start moving furniture.
+      <PageHead title="A more thoughtful way to make space">
+        Spaces with Nexus is building practical tools that help people make more confident decisions about the spaces they live and work in.
       </PageHead>
       <section className="wrap prose">
-        <p>A piece of furniture can look like it will fit on the other side of the room and still leave too little space to move around. Finding that out after lifting and shifting everything is frustrating.</p>
-        <p>Map your room, add the furniture you already own, and use AI to explore different arrangements around a specific goal, from making more floor space to creating a work corner. Each suggestion gives you a concrete option to review on your floor plan.</p>
-        <p>AI can help you explore possibilities, but the quality of the plan still depends on accurate measurements. Account for doors, windows and other fixed features, and check real-world access and clearances before moving anything.</p>
+        <p>Our homes and workspaces have to do a lot. A room might need to make space for rest, work, storage, guests, or a new piece of furniture, often without changing its dimensions. Working out what fits can quickly become a frustrating cycle of guesswork, moving things, and starting again.</p>
+        <p>Spaces with Nexus was created to make that process more considered. We bring room measurements, furniture planning, and AI-assisted layout exploration into one place, so people can test ideas against their actual space before committing time and effort to moving things around.</p>
+        <p>We believe good tools should make complex decisions easier to approach, while keeping people in control. Our planner turns dimensions into a scaled floor plan, helps identify basic fit issues, and can suggest alternative arrangements based on the room, the furniture, and the goal. Those suggestions are starting points to review, not instructions to follow blindly.</p>
+        <p>Our focus is practical: make room planning clearer, more accessible, and more useful in everyday life. We are building Spaces with Nexus with that purpose in mind, and improving the experience as we learn what helps people plan their spaces with greater confidence.</p>
       </section>
       <section className="wrap gaps">
-        <h2>Before you move anything</h2>
+        <h2>What guides our work</h2>
         <dl>
-          {gaps.map(([term, text]) => (
+          {principles.map(([term, text]) => (
             <div key={term}>
               <dt>{term}</dt>
               <dd>{text}</dd>
@@ -84,23 +84,23 @@ export function About() {
           ))}
         </dl>
       </section>
-      <CtaBand title="Put your room measurements to work." />
+      <CtaBand title="Start with your room. Explore what could work." />
     </main>
   )
 }
 
 const privacy = [
-  ['Saved plans', 'When you press Save, your room dimensions and furniture layout are stored in this browser’s local storage. They are not attached to an account or automatically sent to NEXUS. Clearing this browser’s site data can remove saved plans.'],
-  ['AI layout suggestions', 'When you request a layout suggestion, NEXUS sends your room dimensions, furniture details and positions, and the goal you enter to its layout service. The service sends that information to its AI provider to generate a proposal. Do not include sensitive or personal information in your goal text.'],
-  ['Printed or saved copies', 'If you choose Print / Save PDF, your browser or operating system handles printing or creating the PDF. NEXUS does not upload that PDF. You control where you save it and who can access it.'],
-  ['Accounts and service providers', 'You can use the planner without creating an account. The service is hosted by third-party providers, which may process technical data under their own privacy policies.'],
+  ['Saved plans', 'When you save a plan, room dimensions and furniture positions are stored in this browser. They are not attached to an account or automatically sent to Spaces with Nexus. Clearing this browser’s site data can remove saved plans.'],
+  ['AI layout suggestions', 'When you request a layout suggestion, the room dimensions, furniture details and positions, and the goal you enter are sent to the layout service. The service sends that information to its AI provider to generate a proposal. Do not include sensitive or personal information in your goal text.'],
+  ['Printed or saved copies', 'If you choose Print / Save PDF, your browser or operating system handles printing or creating the PDF. Spaces with Nexus does not upload that PDF. You control where you save it and who can access it.'],
+  ['Accounts and service providers', 'The planner can be used without creating an account. The service is hosted by third-party providers, which may process technical data under their own privacy policies.'],
 ]
 
 export function Privacy() {
   return (
     <main>
-      <PageHead title="Your plan, your device">
-        Understand what NEXUS stores locally and what is shared when you request an AI layout suggestion.
+      <PageHead title="Your plan, handled with care">
+        Learn what Spaces with Nexus stores in your browser and what is shared when you request an AI layout suggestion.
       </PageHead>
       <section className="wrap policy">
         {privacy.map(([title, text]) => (
@@ -118,10 +118,10 @@ export function NotFound() {
   return (
     <main>
       <PageHead title="We couldn’t find that page">
-        Check the address or return to NEXUS to plan your room.
+        Check the address or return to Spaces with Nexus to plan your room.
       </PageHead>
       <section className="wrap">
-        <Link to="/" className="btn btn-dark">Back to NEXUS</Link>
+        <Link to="/" className="btn btn-dark">Back to Spaces with Nexus</Link>
       </section>
     </main>
   )
