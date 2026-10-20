@@ -1,31 +1,21 @@
-# NEXUS
+# Spaces with Nexus
 
-NEXUS helps you plan a room around the furniture you own. Enter the room's measurements, arrange furniture on a scaled floor plan, and review fit issues before moving anything.
+Spaces with Nexus is a room-planning product that helps people make more considered decisions about their living and working spaces. Enter room measurements, arrange the furniture you own on a scaled floor plan, and explore AI-assisted layout proposals before moving anything.
 
-## What you can do
+## Product capabilities
 
-- Create a floor plan in centimetres with rulers along the top and left edges
-- Drag, rotate and nudge furniture; positions snap to 5 cm and align with walls
-- Edit furniture names and dimensions, and set exact distances from the left and top walls
+- Build a floor plan using room dimensions in centimetres
+- Add, resize, rotate, move and arrange furniture
+- Snap positions to a 5 cm grid and align furniture with room walls
 - Identify overlapping pieces and furniture extending beyond room boundaries
-- Request layout suggestions from a written goal, preview proposed positions, and choose whether to apply them
-- Undo and redo changes, save a plan in the current browser, and export a JSON copy
-
-## Keyboard shortcuts
-
-| Key | Action |
-| --- | --- |
-| Tab | Move between furniture pieces |
-| Arrow keys | Move the selected piece 5 cm (25 cm with Shift) |
-| R | Rotate the selected piece a quarter turn |
-| Delete | Remove the selected piece |
-| Ctrl or Cmd + Z | Undo (add Shift to redo) |
+- Generate layout proposals from a written goal and preview them before applying
+- Undo and redo layout changes, save plans in the current browser, and print or export a JSON copy
 
 ## Technology
 
 - React, TypeScript and Vite
 - SVG floor plan with CSS design tokens in `src/styles/base.css`
-- Vercel serverless function for layout suggestions, using the OpenAI API server-side
+- Vercel serverless function for AI-assisted layout suggestions
 
 ## Project structure
 
@@ -37,7 +27,7 @@ src/styles/             Tokens and base styles, site styles, planner styles
 src/brand.ts            Product name and storage keys
 ```
 
-## Run locally
+## Local development
 
 ```bash
 npm install
@@ -54,15 +44,14 @@ Set `OPENAI_API_KEY` in the Vercel project environment. `OPENAI_MODEL` is option
 
 ## Deployment
 
-`vercel.json` rewrites non-API paths to `index.html`, allowing direct links such as `/workspace` and `/how-it-works` to work after a refresh.
+The production domain is [spaceswithnexus.com](https://spaceswithnexus.com/). `vercel.json` rewrites non-API paths to `index.html`, allowing direct links such as `/workspace` and `/how-it-works` to work after a refresh.
 
-## Important planning notes
+## Planning responsibly
 
-- Furniture dimensions are entered manually. Room and furniture photos are not interpreted.
-- Doors, windows and other fixed features cannot be placed on the plan.
-- Layout checks flag overlaps and furniture outside the room; they do not verify walkway clearance, door access, accessibility requirements or building-code compliance.
-- Plans are saved in the current browser. There are no accounts or automatic cloud sync; export a JSON copy to move a plan to another device.
+Furniture dimensions are entered manually, so measure your room and furniture carefully. Doors, windows and other fixed features cannot currently be placed on the plan. The planner flags overlaps and furniture outside the room, but does not verify walkway clearance, door access, accessibility requirements or building-code compliance. Review the proposed layout in the real space before moving furniture.
+
+Plans are saved in the current browser. They are not attached to an account or automatically synced between devices; use the export or print options to keep a copy.
 
 ## Brand
 
-The product name and local-storage keys are defined in `src/brand.ts`. Review brand, domain and trademark availability before expanding distribution.
+The product name and storage keys are defined in `src/brand.ts`.
