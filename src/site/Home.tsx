@@ -30,41 +30,88 @@ function Reveal({ children, className = '' }: { children: ReactNode; className?:
 const features = [
   {
     number: '01',
-    title: 'Plan with real measurements',
-    body: 'Set your room dimensions, enter the width and depth of your furniture, and arrange each piece on a scaled floor plan.',
+    title: 'Start with the room you have',
+    body: 'Enter your room dimensions to create a scaled floor plan. No idealised showroom, just a practical starting point based on your space.',
   },
   {
     number: '02',
-    title: 'See basic fit issues sooner',
-    body: 'Spaces with Nexus flags furniture that overlaps or extends beyond the room, helping you catch potential problems before moving anything.',
+    title: 'Make your furniture part of the plan',
+    body: 'Add the pieces you own, adjust their measurements, then move and rotate them on the plan to see how the arrangement comes together.',
   },
   {
     number: '03',
-    title: 'Explore more possibilities',
-    body: 'Describe what you want to improve and get an AI-assisted arrangement shaped around your room, furniture and goal. Review it on the floor plan before applying it.',
+    title: 'Try another way',
+    body: 'Describe what you want the room to do and explore an AI-assisted layout proposal shaped by your dimensions, furniture and goal.',
   },
 ]
 
 const moments = [
-  { title: 'Refreshing a room', body: 'Explore new ways to arrange the furniture you already own.' },
-  { title: 'Bringing in something new', body: 'Check the footprint against your room before bringing a new piece home.' },
-  { title: 'Moving or settling in', body: 'Plan where larger pieces might go before moving day, then refine the layout as you go.' },
+  { title: 'Making a room work harder', body: 'Find a place for work, rest, storage or guests without pretending you have more space than you do.' },
+  { title: 'Considering a new piece', body: 'Check the footprint of a desk, bed or cabinet against your room before bringing it home.' },
+  { title: 'Getting ready to move', body: 'Think through where the larger pieces could go before the lifting, shifting and rearranging begin.' },
 ]
+
+function LayoutComparison() {
+  return (
+    <div className="layout-comparison" aria-label="Illustrative comparison of two furniture arrangements in the same room">
+      <div className="comparison-heading">
+        <span className="comparison-kicker">ONE ROOM, TWO POSSIBILITIES</span>
+        <span className="comparison-dimensions">4.2 m × 3.4 m</span>
+      </div>
+      <div className="comparison-plans">
+        <div className="comparison-plan">
+          <div className="comparison-plan-label"><span>01</span><strong>Current arrangement</strong></div>
+          <svg className="mini-plan" viewBox="0 0 280 220" role="img" aria-label="A room plan with a bed, desk and wardrobe arranged around a crowded centre">
+            <rect x="18" y="14" width="244" height="190" rx="2" className="plan-room" />
+            <rect x="30" y="26" width="112" height="78" rx="3" className="plan-bed" />
+            <path d="M36 32h100v18H36z" className="plan-pillow" />
+            <rect x="150" y="26" width="98" height="36" rx="2" className="plan-wardrobe" />
+            <path d="M199 26v36" className="plan-detail" />
+            <rect x="30" y="120" width="94" height="32" rx="2" className="plan-desk" />
+            <rect x="54" y="158" width="42" height="30" rx="5" className="plan-chair" />
+            <rect x="146" y="90" width="70" height="88" rx="3" className="plan-bed" />
+            <path d="M153 98h56v14h-56z" className="plan-pillow" />
+            <path d="M18 204h244" className="plan-wall" />
+          </svg>
+          <p>The centre feels crowded.</p>
+        </div>
+        <div className="comparison-plan comparison-plan-proposed">
+          <div className="comparison-plan-label"><span>02</span><strong>Another possibility</strong></div>
+          <svg className="mini-plan" viewBox="0 0 280 220" role="img" aria-label="An alternative room plan with the bed against one wall, desk by the side and a clearer centre">
+            <rect x="18" y="14" width="244" height="190" rx="2" className="plan-room" />
+            <rect x="30" y="26" width="112" height="78" rx="3" className="plan-bed" />
+            <path d="M36 32h100v18H36z" className="plan-pillow" />
+            <rect x="150" y="26" width="98" height="36" rx="2" className="plan-wardrobe" />
+            <path d="M199 26v36" className="plan-detail" />
+            <rect x="150" y="142" width="94" height="32" rx="2" className="plan-desk" />
+            <rect x="174" y="105" width="42" height="30" rx="5" className="plan-chair" />
+            <rect x="30" y="132" width="48" height="48" rx="3" className="plan-table" />
+            <path d="M88 122h50" className="plan-path" />
+            <path d="M18 204h244" className="plan-wall" />
+          </svg>
+          <p>More open space to consider.</p>
+        </div>
+      </div>
+      <div className="comparison-note"><span className="comparison-note-dot" /> Illustrative layout only, not a generated result. Your options depend on your measurements and furniture.</div>
+    </div>
+  )
+}
 
 export default function Home() {
   return (
     <main>
       <section className="wrap hero">
         <div className="hero-copy">
-          <p className="eyebrow">Thoughtful room planning, grounded in real measurements.</p>
-          <h1>Make room for what matters.</h1>
+          <p className="eyebrow">Room planning for real life</p>
+          <h1>A little more room to live.</h1>
           <p className="lede">
-            Spaces with Nexus helps you map your room, arrange the furniture you own, and explore layout ideas shaped around your dimensions and goals. See what could work on a floor plan before you start moving things.
+            Plan your space around the room you have, the furniture you own, and the life you want it to make room for. Explore an arrangement on a measured floor plan before you start moving things.
           </p>
           <div className="hero-actions">
-            <Link to="/workspace" className="btn btn-primary btn-lg">Plan my room</Link>
+            <Link to="/workspace" className="btn btn-primary btn-lg">Plan your room</Link>
             <Link to="/how-it-works" className="text-link">See how it works</Link>
           </div>
+          <p className="hero-reassurance">Your room. Your furniture. Your call.</p>
         </div>
         <HeroPlanner />
       </section>
@@ -73,9 +120,10 @@ export default function Home() {
         <section className="section">
           <div className="wrap split">
             <div className="lead">
-              <p className="eyebrow">Make the space make sense</p>
-              <h2>Good room layouts start with what actually fits.</h2>
-              <p>Inspiration is a starting point. Spaces with Nexus pairs your measurements with AI-assisted layout ideas, so you can explore what might work in your own space with your own furniture.</p>
+              <p className="eyebrow">Start with what is real</p>
+              <h2>A room has to do more than look good.</h2>
+              <p>It might need to fit a bed, a desk, storage, and the everyday space to move around. You should not have to guess your way through every possible arrangement.</p>
+              <p className="lead-last">Spaces with Nexus helps you think through the options before you put your back into moving everything.</p>
             </div>
             <ul className="rows">
               {features.map((f) => (
@@ -96,27 +144,13 @@ export default function Home() {
         <section className="ai-section">
           <div className="wrap ai-grid">
             <div className="ai-copy">
-              <p className="eyebrow">From layout brief to proposal</p>
-              <h2>An AI layout partner, grounded in your room.</h2>
-              <p>Tell Spaces with Nexus what the room needs to do. It uses your dimensions, furniture details and goal as context to draft another arrangement, giving you a concrete option to evaluate instead of a blank page.</p>
-              <p>Every suggestion is a proposal, not a command. Preview the positions, review any flagged overlaps, and decide whether to apply it. You remain responsible for checking walkways, access and clearances in the actual room.</p>
+              <p className="eyebrow">Think it through before you move it</p>
+              <h2>See what could change.</h2>
+              <p>Tell Spaces with Nexus what you want your room to do. AI-assisted suggestions give you another arrangement to consider, using your room dimensions, furniture details and goal as context.</p>
+              <p>It is a proposal, not a verdict. Review the layout, check any flagged fit issues, and decide what makes sense for your space and the way you live.</p>
               <Link to="/workspace" className="btn btn-primary">Explore a layout</Link>
             </div>
-            <div className="ai-card" aria-label="Illustrative example of a layout brief and suggested outcome">
-              <div className="ai-card-top"><span className="ai-pulse" /> LAYOUT BRIEF</div>
-              <p className="ai-prompt">“Make more room to move and give me a comfortable work corner.”</p>
-              <div className="ai-divider" />
-              <div className="ai-result-label">POSSIBLE LAYOUT DIRECTION</div>
-              <div className="ai-result">
-                <span className="ai-result-mark">01</span>
-                <div><strong>Open up the centre</strong><p>Consider moving larger pieces towards the walls where the dimensions allow.</p></div>
-              </div>
-              <div className="ai-result">
-                <span className="ai-result-mark">02</span>
-                <div><strong>Group work furniture</strong><p>Place the desk and chair together to define a dedicated work area.</p></div>
-              </div>
-              <p className="ai-card-foot">Illustrative example. Generated suggestions vary with your room, furniture and goal.</p>
-            </div>
+            <LayoutComparison />
           </div>
         </section>
       </Reveal>
@@ -142,7 +176,7 @@ export default function Home() {
       </Reveal>
 
       <Reveal>
-        <CtaBand title="Bring your measurements. Explore what could work." />
+        <CtaBand title="Start with your room. Explore what could work." />
       </Reveal>
     </main>
   )
