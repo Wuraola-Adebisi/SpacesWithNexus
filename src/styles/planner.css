@@ -164,3 +164,36 @@
   .checks button { text-decoration: none !important; }
   .plan-halo, .plan-focus, .plan-guides, .plan-ghosts { display: none !important; }
 }
+
+/* Workspace interactions: make changes feel immediate and keep state transitions legible */
+.panel-section { animation: panel-enter .28s ease-out both; }
+.panel-section:nth-of-type(2) { animation-delay: .035s; }
+.panel-section:nth-of-type(3) { animation-delay: .07s; }
+.piece { transition: background-color .18s ease, border-color .18s ease, transform .18s cubic-bezier(.2,.7,.2,1); }
+.piece:hover { transform: translateX(3px); }
+.piece[aria-pressed='true'] { box-shadow: inset 3px 0 0 var(--tape-deep); }
+.piece-list li { animation: list-item-in .24s ease-out both; }
+.piece-list li:nth-child(2) { animation-delay: .025s; }
+.piece-list li:nth-child(3) { animation-delay: .05s; }
+.piece-list li:nth-child(4) { animation-delay: .075s; }
+.piece-list li:nth-child(5) { animation-delay: .1s; }
+.piece-list li:nth-child(6) { animation-delay: .125s; }
+.add-btn { transition: transform .18s ease, border-color .18s ease, background-color .18s ease, box-shadow .18s ease; }
+.add-btn:hover { transform: translateY(-2px); background: #fffdf5; box-shadow: 0 5px 14px rgba(23,33,43,.07); }
+.tab { transition: background-color .18s ease, color .18s ease, box-shadow .18s ease; }
+.tool { transition: background-color .16s ease, transform .16s ease, border-color .16s ease; }
+.tool:hover { transform: translateY(-1px); }
+.proposal { animation: proposal-in .32s cubic-bezier(.2,.7,.2,1) both; }
+.toast { animation: toast-in .25s cubic-bezier(.2,.7,.2,1) both; }
+.plan-item { transition: opacity .16s ease, filter .16s ease; }
+.plan-item:active { filter: drop-shadow(0 4px 3px rgba(23,33,43,.22)); }
+.plan-halo { animation: halo-in .2s ease-out both; }
+@keyframes panel-enter { from { opacity: .65; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes list-item-in { from { opacity: .55; transform: translateX(-5px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes proposal-in { from { opacity: 0; transform: translateY(10px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes toast-in { from { opacity: 0; transform: translate(-50%, 10px); } to { opacity: 1; transform: translate(-50%, 0); } }
+@keyframes halo-in { from { opacity: .25; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .panel-section, .piece-list li, .proposal, .toast, .plan-halo { animation: none !important; }
+  .piece, .add-btn, .tab, .tool, .plan-item { transition: none !important; }
+}
