@@ -148,9 +148,9 @@ export default function Planner() {
     try {
       savePlan({ room, items })
       setSaved(true)
-      setNotice('Plan saved on this device')
+      setNotice('Your plan is saved on this device')
     } catch {
-      setNotice('Could not save. Your browser may be blocking local storage.')
+      setNotice('We couldn’t save your plan. Check your browser settings and try again.')
     }
   }
   const printPlan = () => window.print()
@@ -170,13 +170,13 @@ export default function Planner() {
         <Link to="/" className="brand" aria-label={`${BRAND} home`}><Mark size={24} />{BRAND}</Link>
         <div className="app-plan">
           <strong>{room.name}</strong>
-          <span className={saved ? 'save-state ok' : 'save-state'}>{saved ? 'Saved on this device' : 'Unsaved changes'}</span>
+          <span className={saved ? 'save-state ok' : 'save-state'}>{saved ? 'Saved on this device' : 'Changes not saved yet'}</span>
         </div>
         <div className="app-actions">
           <button className="icon-btn" onClick={undo} disabled={!doc.past.length} aria-label="Undo" title="Undo (Ctrl+Z)"><Undo2 size={17} /></button>
           <button className="icon-btn" onClick={redo} disabled={!doc.future.length} aria-label="Redo" title="Redo (Ctrl+Shift+Z)"><Redo2 size={17} /></button>
-          <button className="btn btn-quiet btn-sm print-action" onClick={printPlan}><Printer size={14} /> Print / Save PDF</button>
-          <button className="btn btn-primary btn-sm" onClick={save}>Save plan</button>
+          <button className="btn btn-quiet btn-sm print-action" onClick={printPlan}><Printer size={14} /> Print or save as PDF</button>
+          <button className="btn btn-primary btn-sm" onClick={save}>Save changes</button>
         </div>
       </header>
 
@@ -184,7 +184,7 @@ export default function Planner() {
         <aside className="panel panel-left" aria-label="Room and furniture">
           <div className="tabs" role="tablist">
             <button role="tab" aria-selected={tab === 'furniture'} className="tab" onClick={() => setTab('furniture')}>Furniture</button>
-            <button role="tab" aria-selected={tab === 'room'} className="tab" onClick={() => setTab('room')}>Room</button>
+            <button role="tab" aria-selected={tab === 'room'} className="tab" onClick={() => setTab('room')}>Room size</button>
           </div>
           {tab === 'furniture' ? (
             <FurniturePanel
@@ -216,15 +216,15 @@ export default function Planner() {
 
         <main className="workbench">
           <div className="wb-tools">
-            <p className="wb-title">Floor plan <span>All measurements in centimetres</span></p>
+            <p className="wb-title">Your room <span>Measurements are in centimetres (cm)</span></p>
             <div className="wb-buttons">
-              <button className="tool" aria-pressed={grid} onClick={() => setGrid(!grid)} aria-label="Show grid" title="Show grid"><Grid2X2 size={16} /></button>
-              <button className="tool" aria-pressed={measures} onClick={() => setMeasures(!measures)} aria-label="Show measurements" title="Show measurements"><Ruler size={16} /></button>
+              <button className="tool" aria-pressed={grid} onClick={() => setGrid(!grid)} aria-label="Show or hide grid" title="Show or hide grid"><Grid2X2 size={16} /></button>
+              <button className="tool" aria-pressed={measures} onClick={() => setMeasures(!measures)} aria-label="Show or hide measurements" title="Show or hide measurements"><Ruler size={16} /></button>
               <span className="divider" />
               <button className="tool" onClick={() => setZoom((z) => Math.max(0.5, +(z - 0.25).toFixed(2)))} aria-label="Zoom out" title="Zoom out"><ZoomOut size={16} /></button>
               <span className="zoom-label">{Math.round(zoom * 100)}%</span>
               <button className="tool" onClick={() => setZoom((z) => Math.min(2.5, +(z + 0.25).toFixed(2)))} aria-label="Zoom in" title="Zoom in"><ZoomIn size={16} /></button>
-              <button className="tool" onClick={() => setZoom(1)} aria-label="Fit plan to screen" title="Fit to screen"><Expand size={16} /></button>
+              <button className="tool" onClick={() => setZoom(1)} aria-label="Fit the room to the screen" title="Fit to screen"><Expand size={16} /></button>
             </div>
           </div>
 
@@ -238,7 +238,7 @@ export default function Planner() {
               ghost={ghost}
               grid={grid}
               measures={measures}
-              label="Floor plan. Drag furniture to move it, or focus a piece and use the arrow keys."
+              label="Your room plan. Drag a piece of furniture to move it. Select it to edit its size, turn it, duplicate it or remove it."
               onSelect={setSelectedId}
               onDragStart={onDragStart}
               onMove={onMove}
@@ -251,10 +251,10 @@ export default function Planner() {
 
           <div className="wb-foot">
             {issues.length === 0 ? (
-              <p className="status ok">Nothing overlaps and everything is inside the walls</p>
+              <p className="status ok">Your furniture fits within the room and nothing overlaps.</p>
             ) : (
               <div className="checks">
-                <p className="status warn">{issues.length} {issues.length === 1 ? 'issue' : 'issues'} to fix</p>
+                <p className="status warn">{issues.length} {issues.length === 1 ? 'issue' : 'issues'} to check</p>
                 <ul>
                   {issues.slice(0, 3).map((issue, i) => (
                     <li key={i}><button onClick={() => setSelectedId(issue.ids[0])}>{issue.message}</button></li>
@@ -264,7 +264,7 @@ export default function Planner() {
               </div>
             )}
             <p className="wb-stats">
-              {items.length} {items.length === 1 ? 'piece covers' : 'pieces cover'} {coverage}% of {(room.width * room.depth / 10000).toFixed(1)} m²
+              {items.length} {items.length === 1 ? 'piece uses' : 'pieces use'} {coverage}% of {(room.width * room.depth / 10000).toFixed(1)} m²
             </p>
           </div>
         </main>
@@ -276,7 +276,7 @@ export default function Planner() {
             onPreview={setGhost}
             onApply={(next) => {
               commit(() => next)
-              setNotice('Layout applied')
+              setNotice('This layout is now on your floor plan')
             }}
           />
         </aside>
