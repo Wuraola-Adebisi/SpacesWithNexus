@@ -27,7 +27,8 @@
 .eyebrow { margin-bottom: 14px; color: var(--ink-3); font-size: .76rem; font-weight: 700; letter-spacing: .13em; line-height: 1.4; text-transform: uppercase; }
 .hero .eyebrow { color: var(--ink-2); }
 .lede { margin-top: 20px; max-width: 34rem; color: var(--ink-2); font-size: 1.15rem; }
-.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 28px; }\n.hero-reassurance { margin-top: 22px; color: var(--ink-3); font-size: .9rem; letter-spacing: .01em; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 28px; }
+.hero-reassurance { margin-top: 22px; color: var(--ink-3); font-size: .9rem; letter-spacing: .01em; }
 .hero-plan { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(8px, 1.6vw, 18px); animation: hero-plan-in .85s .12s cubic-bezier(.2,.7,.2,1) both; }
 .hero-plan figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 20px; padding: 10px 8px 4px; }
 .hint { color: var(--ink-3); font-size: .9rem; }
@@ -43,7 +44,8 @@
 .section { margin-top: clamp(64px, 9vw, 120px); padding-block: clamp(48px, 7vw, 88px) 0; border-top: 1px solid var(--line); }
 .split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); }
 .split .lead { align-self: start; position: sticky; top: 28px; }
-.split .lead p:not(.eyebrow) { margin-top: 16px; max-width: 30rem; color: var(--ink-2); font-size: 1.08rem; }\n.split .lead .lead-last { padding-top: 16px; border-top: 1px solid var(--line); }
+.split .lead p:not(.eyebrow) { margin-top: 16px; max-width: 30rem; color: var(--ink-2); font-size: 1.08rem; }
+.split .lead .lead-last { padding-top: 16px; border-top: 1px solid var(--line); }
 .section h2, .gaps h2, .ai-section h2 { font-size: clamp(1.9rem, 3.3vw, 2.8rem); }
 .rows li { display: grid; grid-template-columns: 36px minmax(0,1fr); gap: 8px; padding-block: 26px; border-top: 1px solid var(--line); }
 .rows li:first-child { padding-top: 0; border-top: 0; }
