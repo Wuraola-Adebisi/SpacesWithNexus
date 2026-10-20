@@ -4,12 +4,14 @@ import Planner from './planner/Planner'
 import { usePath } from './router'
 import { Shell } from './site/Layout'
 import Home from './site/Home'
-import { About, HowItWorks, NotFound, Privacy } from './site/pages'
+import { About, Contact, Examples, HowItWorks, NotFound, Privacy } from './site/pages'
 
 const titles: Record<string, string> = {
   '/': `${BRAND}: try the layout before you lift anything`,
-  '/how-it-works': `How it works | ${BRAND}`,
+  '/examples': `Room planning examples | ${BRAND}`,
   '/about': `About | ${BRAND}`,
+  '/contact': `Contact | ${BRAND}`,
+  '/how-it-works': `How it works | ${BRAND}`,
   '/privacy': `Privacy | ${BRAND}`,
   '/workspace': `Planner | ${BRAND}`,
 }
@@ -25,8 +27,10 @@ export default function App() {
 
   const page =
     path === '/' ? <Home /> :
-    path === '/how-it-works' ? <HowItWorks /> :
+    path === '/examples' ? <Examples /> :
     path === '/about' ? <About /> :
+    path === '/contact' ? <Contact /> :
+    path === '/how-it-works' ? <HowItWorks /> :
     path === '/privacy' ? <Privacy /> :
     <NotFound />
 
