@@ -25,9 +25,9 @@ export function FurniturePanel(p: FurnitureProps) {
   return (
     <>
       <section className="panel-section">
-        <h2 className="panel-title">In this room <span className="count">{p.items.length}</span></h2>
+        <h2 className="panel-title">Furniture in your room <span className="count">{p.items.length}</span></h2>
         {p.items.length === 0 ? (
-          <p className="note">Your room is empty. Add furniture from the catalogue below to get started.</p>
+          <p className="note">Nothing here yet. Add the pieces you have using the options below, or start by checking your room size.</p>
         ) : (
           <ul className="piece-list">
             {p.items.map((i) => (
@@ -46,7 +46,7 @@ export function FurniturePanel(p: FurnitureProps) {
       </section>
 
       {active && f ? (
-        <section className="panel-section editor" aria-label="Selected piece">
+        <section className="panel-section editor" aria-label="Edit this piece">
           <h2 className="panel-title">Selected piece</h2>
           <TextField label="Name" value={active.name} onCommit={(name) => p.onRename(active.id, name)} />
           <div className="field-row">
@@ -54,8 +54,8 @@ export function FurniturePanel(p: FurnitureProps) {
             <NumberField label="Depth" unit="cm" value={active.depth} min={10} max={600} onCommit={(v) => p.onResize(active.id, 'depth', v)} />
           </div>
           <div className="field-row">
-            <NumberField label="From left wall" unit="cm" value={active.x} min={0} max={Math.max(0, p.room.width - f.w)} onCommit={(v) => p.onMoveTo(active.id, v, active.y)} />
-            <NumberField label="From top wall" unit="cm" value={active.y} min={0} max={Math.max(0, p.room.depth - f.d)} onCommit={(v) => p.onMoveTo(active.id, active.x, v)} />
+            <NumberField label="Distance from left wall" unit="cm" value={active.x} min={0} max={Math.max(0, p.room.width - f.w)} onCommit={(v) => p.onMoveTo(active.id, v, active.y)} />
+            <NumberField label="Distance from top wall" unit="cm" value={active.y} min={0} max={Math.max(0, p.room.depth - f.d)} onCommit={(v) => p.onMoveTo(active.id, active.x, v)} />
           </div>
           <div className="button-row">
             <button className="btn btn-quiet btn-sm" onClick={() => p.onRotate(active.id)}><RotateCw size={14} /> Rotate</button>
@@ -66,7 +66,7 @@ export function FurniturePanel(p: FurnitureProps) {
       ) : null}
 
       <section className="panel-section">
-        <h2 className="panel-title">Add furniture</h2>
+        <h2 className="panel-title">Add a piece of furniture</h2>
         <div className="add-grid">
           {CATALOG.map((c) => (
             <button key={c.kind} className="add-btn" onClick={() => p.onAdd(c)}>
@@ -76,7 +76,7 @@ export function FurniturePanel(p: FurnitureProps) {
             </button>
           ))}
         </div>
-        <p className="note">Catalogue dimensions are estimates. Select a piece and enter its measured width and depth for a more accurate plan.</p>
+        <p className="note">These are example sizes. For a closer match, measure your own furniture and enter its width and depth after adding it.</p>
       </section>
     </>
   )
@@ -94,23 +94,23 @@ export function RoomPanel({ room, onChange, onResetSample, onClear, hasItems }: 
   return (
     <>
       <section className="panel-section">
-        <h2 className="panel-title">Room size</h2>
+        <h2 className="panel-title">Your room size</h2>
         <TextField label="Room name" value={room.name} maxLength={60} onCommit={(name) => onChange({ ...room, name })} />
         <div className="field-row">
           <NumberField label="Width" unit="cm" value={room.width} min={MIN_ROOM} max={MAX_ROOM} onCommit={(width) => onChange({ ...room, width })} />
           <NumberField label="Length" unit="cm" value={room.depth} min={MIN_ROOM} max={MAX_ROOM} onCommit={(depth) => onChange({ ...room, depth })} />
         </div>
         <p className="note">
-          That is {(room.width * room.depth / 10000).toFixed(1)} m² of floor. Sizes from {MIN_ROOM} to {MAX_ROOM.toLocaleString()} cm are accepted.
+          Your room has {(room.width * room.depth / 10000).toFixed(1)} m² of floor space. Measure wall to wall and enter the width and length in centimetres (cm).
         </p>
       </section>
       <section className="panel-section">
-        <h2 className="panel-title">Start over</h2>
+        <h2 className="panel-title">Reset your room plan</h2>
         <div className="button-row">
-          <button className="btn btn-quiet btn-sm" onClick={onResetSample}>Load starter bedroom</button>
-          <button className="btn btn-quiet btn-sm" onClick={onClear} disabled={!hasItems}>Remove all furniture</button>
+          <button className="btn btn-quiet btn-sm" onClick={onResetSample}>Try the sample bedroom</button>
+          <button className="btn btn-quiet btn-sm" onClick={onClear} disabled={!hasItems}>Clear all furniture</button>
         </div>
-        <p className="note">Doors, windows and fixed features are not shown on the plan. Keep their positions and clearances in mind as you arrange furniture.</p>
+        <p className="note">Doors, windows, radiators and built-in cupboards are not shown. Leave enough room for them and for people to walk around.</p>
       </section>
     </>
   )
