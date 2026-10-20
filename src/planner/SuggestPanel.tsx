@@ -4,10 +4,10 @@ import { findIssues } from './geometry'
 import type { Item, Placement, Proposal, Room } from './types'
 
 const GOALS: [string, string][] = [
-  ['More floor space', 'Open up as much floor space as possible and keep furniture out of the main walking path.'],
-  ['A work corner', 'Put the desk and chair together in a comfortable work corner with room to sit and move.'],
-  ['Clearer walkways', 'Make it easier to move through the room. Keep a clear path and avoid blocked access.'],
-  ['Easier storage', 'Arrange the furniture so storage is easy to reach and the space is used efficiently.'],
+  ['More room to move', 'I want more open floor space and a clear path to walk through the room.'],
+  ['Make space to work', 'I want my desk and chair together, with enough room to sit down and work comfortably.'],
+  ['Clear walking space', 'I want an easy path through the room without furniture getting in the way.'],
+  ['Reach things easily', 'I want my wardrobe and storage to be easy to reach without crowding the room.'],
 ]
 
 type Props = {
@@ -18,7 +18,7 @@ type Props = {
 }
 
 export default function SuggestPanel({ room, items, onPreview, onApply }: Props) {
-  const [goal, setGoal] = useState('I want more open floor space and a comfortable place to work.')
+  const [goal, setGoal] = useState('I want more room to move around and a comfortable place to work.')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const [proposal, setProposal] = useState<Proposal | null>(null)
@@ -80,24 +80,24 @@ export default function SuggestPanel({ room, items, onPreview, onApply }: Props)
   return (
     <>
       <section className="panel-section">
-        <h2 className="panel-title">Ask AI for a layout</h2>
+        <h2 className="panel-title">Explore another arrangement</h2>
         <p className="note lead-note">
-          Describe what you want the room to do. Spaces with Nexus uses your room dimensions and furniture list to draft a proposal you can preview, adjust or discard.
+          What would you like to change? Choose an idea below or tell us in your own words. We’ll suggest another way to arrange the furniture you’ve added. Look it over before deciding whether to use it.
         </p>
         <label className="field">
-          <span>Your layout brief</span>
+          <span>What would you like your room to feel or do?</span>
           <textarea value={goal} maxLength={1200} rows={5} onChange={(e) => setGoal(e.target.value)} />
         </label>
         <p className="counter">{goal.length} of 1200</p>
-        <div className="chips" role="group" aria-label="Quick layout goals">
+        <div className="chips" role="group" aria-label="Choose what you want to change about the room">
           {GOALS.map(([label, value]) => (
             <button key={label} className="chip" onClick={() => setGoal(value)}>{label}</button>
           ))}
         </div>
         <button className="btn btn-primary btn-block" onClick={ask} disabled={busy || !goal.trim() || items.length === 0}>
-          {busy ? <><LoaderCircle size={16} className="spin" /> Generating options</> : 'Generate layout idea'}
+          {busy ? <><LoaderCircle size={16} className="spin" /> Working on an idea…</> : 'Suggest a layout'}
         </button>
-        {items.length === 0 ? <p className="note">Add furniture to your room to generate a layout idea.</p> : null}
+        {items.length === 0 ? <p className="note">Add at least one piece of furniture to get a layout suggestion.</p> : null}
         {error ? <p className="callout callout-warn" role="alert"><TriangleAlert size={16} /> {error}</p> : null}
       </section>
 
@@ -105,28 +105,28 @@ export default function SuggestPanel({ room, items, onPreview, onApply }: Props)
         <section className="panel-section proposal" aria-label="AI layout proposal">
           <div className="proposal-head">
             <h3>{proposal.name}</h3>
-            <button className="icon-btn" onClick={() => setProposal(null)} aria-label="Discard suggestion"><X size={16} /></button>
+            <button className="icon-btn" onClick={() => setProposal(null)} aria-label="Close suggestion"><X size={16} /></button>
           </div>
           <p>{proposal.summary}</p>
           {proposal.tradeoffs.length ? (
             <ul className="tradeoffs">{proposal.tradeoffs.map((t, i) => <li key={i}>{t}</li>)}</ul>
           ) : null}
           {stale ? (
-            <p className="callout callout-warn"><TriangleAlert size={16} /> Your room or furniture has changed since this suggestion was created. Generate a new layout to match your current plan.</p>
+            <p className="callout callout-warn"><TriangleAlert size={16} /> You’ve changed the room or moved furniture since this idea was made. Get a new suggestion to match your latest plan.</p>
           ) : proposal.issues.length ? (
-            <p className="callout callout-warn"><TriangleAlert size={16} /> {proposal.issues.slice(0, 2).map((s) => s.message).join('. ')}. Adjust the arrangement before applying it.</p>
+            <p className="callout callout-warn"><TriangleAlert size={16} /> {proposal.issues.slice(0, 2).map((s) => s.message).join('. ')}. Check the highlighted problems and adjust the layout before using it.</p>
           ) : null}
           <div className="button-row">
-            <button className="btn btn-quiet btn-sm" onClick={() => setProposal(null)}>Discard</button>
+            <button className="btn btn-quiet btn-sm" onClick={() => setProposal(null)}>Keep my current layout</button>
             <button className="btn btn-dark btn-sm" disabled={blocked} onClick={() => { onApply(proposal.items); setProposal(null) }}>
-              <Check size={14} /> Apply layout
+              <Check size={14} /> Use this layout
             </button>
           </div>
         </section>
       ) : null}
 
       <p className="privacy-note">
-        To generate a layout idea, NEXUS sends your room dimensions, furniture details and the goal you enter to its AI service. Your plan is otherwise saved only in this browser.
+        When you ask for a layout idea, we send your room measurements, furniture details and your description to our AI service to create it. Your plan is saved in this browser when you choose Save changes.
       </p>
     </>
   )
