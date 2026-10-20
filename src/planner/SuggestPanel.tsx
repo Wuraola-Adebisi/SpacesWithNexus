@@ -52,8 +52,8 @@ export default function SuggestPanel({ room, items, onPreview, onApply }: Props)
       if (!res.ok || !data || !Array.isArray(data.placements)) {
         throw new Error(
           res.status === 404
-            ? 'AI layout suggestions are unavailable right now. Please try again later.'
-            : data?.error ?? 'We couldn’t generate a layout suggestion just now. Please try again.',
+            ? 'Layout suggestions aren’t available right now. Please try again later.'
+            : data?.error ?? 'We couldn’t come up with a layout idea just now. Please try again.',
         )
       }
       const next = items.map((i) => {
@@ -126,7 +126,7 @@ export default function SuggestPanel({ room, items, onPreview, onApply }: Props)
       ) : null}
 
       <p className="privacy-note">
-        When you ask for a layout idea, we send your room measurements, furniture details and your description to our AI service to create it. Your plan is saved in this browser when you choose Save changes.
+        When you ask for a layout idea, we send your room measurements, furniture details and description to our AI service to create a suggestion.
       </p>
     </>
   )
