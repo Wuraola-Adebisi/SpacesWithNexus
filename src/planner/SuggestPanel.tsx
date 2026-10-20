@@ -82,7 +82,7 @@ export default function SuggestPanel({ room, items, onPreview, onApply }: Props)
       <section className="panel-section">
         <h2 className="panel-title">Ask AI for a layout</h2>
         <p className="note lead-note">
-          Describe what you want the room to do. NEXUS uses your room dimensions and furniture list to draft a proposal you can preview, adjust or discard.
+          Describe what you want the room to do. Spaces with Nexus uses your room dimensions and furniture list to draft a proposal you can preview, adjust or discard.
         </p>
         <label className="field">
           <span>Your layout brief</span>
