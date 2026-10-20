@@ -30,25 +30,25 @@ function Reveal({ children, className = '' }: { children: ReactNode; className?:
 const features = [
   {
     number: '01',
-    title: 'Work with real measurements',
+    title: 'Plan with real measurements',
     body: 'Set your room dimensions, enter the width and depth of your furniture, and arrange each piece on a scaled floor plan.',
   },
   {
     number: '02',
-    title: 'Catch basic fit issues early',
-    body: 'NEXUS flags furniture that overlaps or extends beyond the room, helping you spot problems before you start moving things.',
+    title: 'See basic fit issues sooner',
+    body: 'Spaces with Nexus flags furniture that overlaps or extends beyond the room, helping you catch potential problems before moving anything.',
   },
   {
     number: '03',
-    title: 'Explore options with AI',
-    body: 'Describe what you want to improve and get a proposed arrangement shaped around your room, furniture and goal. Review it on the floor plan before applying it.',
+    title: 'Explore more possibilities',
+    body: 'Describe what you want to improve and get an AI-assisted arrangement shaped around your room, furniture and goal. Review it on the floor plan before applying it.',
   },
 ]
 
 const moments = [
-  { title: 'A room refresh', body: 'Use AI to explore new ways to arrange the furniture you already own.' },
-  { title: 'A new piece of furniture', body: 'Check the footprint against your room before bringing it home.' },
-  { title: 'A move or a new home', body: 'Plan where larger pieces might go before moving day, then refine the layout as you go.' },
+  { title: 'Refreshing a room', body: 'Explore new ways to arrange the furniture you already own.' },
+  { title: 'Bringing in something new', body: 'Check the footprint against your room before bringing a new piece home.' },
+  { title: 'Moving or settling in', body: 'Plan where larger pieces might go before moving day, then refine the layout as you go.' },
 ]
 
 export default function Home() {
@@ -56,10 +56,10 @@ export default function Home() {
     <main>
       <section className="wrap hero">
         <div className="hero-copy">
-          <p className="eyebrow">AI-assisted room planning, grounded in real measurements.</p>
-          <h1>Try the layout before you lift anything.</h1>
+          <p className="eyebrow">Thoughtful room planning, grounded in real measurements.</p>
+          <h1>Make room for what matters.</h1>
           <p className="lede">
-            Map your room, add the furniture you own, then use AI to explore layout options shaped around your dimensions and goals. Review each proposal on your floor plan before making a move.
+            Spaces with Nexus helps you map your room, arrange the furniture you own, and explore layout ideas shaped around your dimensions and goals. See what could work on a floor plan before you start moving things.
           </p>
           <div className="hero-actions">
             <Link to="/workspace" className="btn btn-primary btn-lg">Plan my room</Link>
@@ -75,7 +75,7 @@ export default function Home() {
             <div className="lead">
               <p className="eyebrow">Make the space make sense</p>
               <h2>Good room layouts start with what actually fits.</h2>
-              <p>Inspiration is a starting point. NEXUS pairs your measurements with AI-generated layout ideas, so you can explore what might work in your own space with your own furniture.</p>
+              <p>Inspiration is a starting point. Spaces with Nexus pairs your measurements with AI-assisted layout ideas, so you can explore what might work in your own space with your own furniture.</p>
             </div>
             <ul className="rows">
               {features.map((f) => (
@@ -98,7 +98,7 @@ export default function Home() {
             <div className="ai-copy">
               <p className="eyebrow">From layout brief to proposal</p>
               <h2>An AI layout partner, grounded in your room.</h2>
-              <p>Tell NEXUS what the room needs to do. It uses your dimensions, furniture details and goal as context to draft another arrangement, giving you a concrete option to evaluate instead of a blank page.</p>
+              <p>Tell Spaces with Nexus what the room needs to do. It uses your dimensions, furniture details and goal as context to draft another arrangement, giving you a concrete option to evaluate instead of a blank page.</p>
               <p>Every suggestion is a proposal, not a command. Preview the positions, review any flagged overlaps, and decide whether to apply it. You remain responsible for checking walkways, access and clearances in the actual room.</p>
               <Link to="/workspace" className="btn btn-primary">Explore a layout</Link>
             </div>
