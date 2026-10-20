@@ -26,12 +26,12 @@ export function overlaps(a: Item, b: Item) {
 export function findIssues(items: Item[], room: Room): Issue[] {
   const out: Issue[] = []
   for (const i of items) {
-    if (!isInside(i, room)) out.push({ message: `${i.name} reaches past a wall`, ids: [i.id] })
+    if (!isInside(i, room)) out.push({ message: `${i.name} extends beyond a room wall`, ids: [i.id] })
   }
   for (let a = 0; a < items.length; a++) {
     for (let b = a + 1; b < items.length; b++) {
       if (overlaps(items[a], items[b])) {
-        out.push({ message: `${items[a].name} overlaps ${items[b].name}`, ids: [items[a].id, items[b].id] })
+        out.push({ message: `${items[a].name} is on top of ${items[b].name}`, ids: [items[a].id, items[b].id] })
       }
     }
   }
