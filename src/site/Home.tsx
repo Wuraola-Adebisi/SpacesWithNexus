@@ -156,7 +156,7 @@ export default function Home() {
       </Reveal>
 
       <Reveal>
-        <section className="section moments-section">
+        <section id="use-cases" className="section moments-section">
           <div className="wrap">
             <div className="moments-heading">
               <p className="eyebrow">Useful before the heavy lifting</p>
