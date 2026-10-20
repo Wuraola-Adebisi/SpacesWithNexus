@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { RotateCw, RotateCcw } from 'lucide-react'
 import FloorPlan from '../planner/FloorPlan'
 import { findIssues, rotateItem } from '../planner/geometry'
 import type { Item, Room } from '../planner/types'
@@ -17,6 +18,11 @@ const start = (): Item[] => [
 export default function HeroPlanner() {
   const [items, setItems] = useState(start)
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const rotateSelected = () => {
+    if (!selectedId) return
+    setItems((list) => list.map((item) => item.id === selectedId ? rotateItem(item, room) : item))
+  }
+  const reset = () => { setItems(start()); setSelectedId(null) }
   const issues = useMemo(() => findIssues(items, room), [items])
   const flagged = useMemo(() => new Set(issues.flatMap((i) => i.ids)), [issues])
 
@@ -38,7 +44,11 @@ export default function HeroPlanner() {
         <span className={issues.length ? 'status warn' : 'status ok'} aria-live="polite">
           {issues.length ? issues[0].message : 'Everything fits'}
         </span>
-        <span className="hint">Drag a piece to move it. Select one and press R to rotate it.</span>
+        <div className="hero-plan-tools">
+          <button className="btn btn-quiet btn-sm" onClick={rotateSelected} disabled={!selectedId}><RotateCw size={14} /> Rotate selected</button>
+          <button className="btn btn-quiet btn-sm" onClick={reset}><RotateCcw size={14} /> Reset plan</button>
+        </div>
+        <span className="hint">Drag a piece to move it. Select one to see its measurements.</span>
       </figcaption>
     </figure>
   )
