@@ -5,7 +5,7 @@ import { Link } from '../router'
 
 const nav = [
   { to: '/how-it-works', label: 'How it works' },
-  { to: '/about', label: 'About' },
+  { to: '/about', label: 'About us' },
 ]
 
 export function SiteHeader({ path }: { path: string }) {
@@ -28,15 +28,15 @@ export function SiteFooter() {
       <div className="wrap footer-main">
         <div className="footer-brand-block">
           <Link to="/" className="brand footer-brand" aria-label={`${BRAND} home`}><Mark />{BRAND}</Link>
-          <p>Make room for the way you live.</p>
+          <p>Thoughtful planning for the spaces we live and work in.</p>
           <Link to="/workspace" className="btn btn-primary">Plan your room</Link>
         </div>
         <div className="footer-nav-block">
-          <p className="footer-heading">Explore NEXUS</p>
+          <p className="footer-heading">Explore Spaces with Nexus</p>
           <nav className="footer-links" aria-label="Footer">
             <Link to="/workspace">Room planner</Link>
             <Link to="/how-it-works">How it works</Link>
-            <Link to="/about">About NEXUS</Link>
+            <Link to="/about">About us</Link>
             <Link to="/privacy">Privacy</Link>
           </nav>
         </div>
