@@ -12,7 +12,7 @@ const starters: StarterPlan[] = [
     room: { name: 'Small bedroom', width: 300, depth: 350 },
     items: [
       { id: 'bed-1', kind: 'bed', name: 'Double bed', width: 200, depth: 150, x: 20, y: 20, rotation: 0 },
-      { id: 'wardrobe-1', kind: 'wardrobe', name: 'Wardrobe', width: 100, depth: 55, x: 180, y: 20, rotation: 0 },
+      { id: 'wardrobe-1', kind: 'wardrobe', name: 'Wardrobe', width: 100, depth: 55, x: 225, y: 20, rotation: 90 },
       { id: 'desk-1', kind: 'desk', name: 'Compact desk', width: 100, depth: 50, x: 20, y: 220, rotation: 0 },
       { id: 'chair-1', kind: 'chair', name: 'Chair', width: 45, depth: 45, x: 45, y: 275, rotation: 0 },
     ],
