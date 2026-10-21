@@ -158,12 +158,12 @@ export function Examples() {
 const termsSections = [
   ['Using the planner', 'Spaces with Nexus helps you explore room dimensions, furniture placement and possible layouts. You may use it for personal, non-commercial room-planning purposes, subject to these terms and applicable law. You are responsible for the information you enter and for how you use the results.'],
   ['Measurements and real-world decisions', 'The floor plan and fit checks are planning aids, not a guarantee that furniture will fit or that a layout is safe or practical in the physical room. Measurements, product dimensions, doors, windows, sockets, access routes, ceiling height and other conditions may affect the result. Measure and verify important details yourself before buying, lifting, installing or moving anything.'],
-  ['AI-assisted suggestions', 'If you request an AI-assisted layout, the details you provide may be processed by our layout service and its AI provider to generate a proposal. Suggestions can be incomplete, inaccurate or unsuitable for your room. Review them carefully; they are optional ideas, not professional interior-design, architectural, engineering or safety advice. Do not rely on them as the sole basis for a purchase or physical change.'],
+  ['AI layout suggestions', 'AI-powered layout suggestions are in development and are not connected yet. When introduced, the details you provide may be processed by our layout service and its AI provider to generate a proposal. Suggestions may be incomplete or unsuitable for your room and should be reviewed carefully. They will be optional ideas, not professional interior-design, architectural, engineering or safety advice.'],
   ['Plans and your responsibility', 'Plans you save are stored in your browser on the device you use. You are responsible for keeping your own copies of important plans. Clearing browser data, changing browsers or using another device may make saved plans unavailable. Do not enter confidential or sensitive information into the planner or an AI prompt.'],
   ['Acceptable use', 'Do not misuse the service, attempt to disrupt its operation, bypass security, interfere with other users, introduce malicious code, or use the service unlawfully. We may restrict access where reasonably necessary to protect the service or its users.'],
   ['Ownership and service availability', 'Spaces with Nexus and its original site content, branding and software are protected by applicable intellectual-property laws. These terms do not transfer ownership of them to you. We may change, suspend or discontinue features as the service develops, and we do not guarantee uninterrupted availability or that every feature will always work on every device.'],
   ['Disclaimers and liability', 'The service is provided on an “as available” basis to the extent permitted by law. We do not warrant that layouts, measurements, fit checks or AI suggestions will be error-free or suitable for every situation. To the extent permitted by applicable law, Spaces with Nexus is not liable for indirect or consequential loss, or for loss or damage arising from reliance on an unverified layout. Nothing in these terms excludes liability that cannot lawfully be excluded.'],
-  ['Third-party services', 'The website may rely on hosting, analytics or AI providers. Those providers may have their own terms and privacy practices. Our handling of information is explained in the Privacy page.'],
+  ['Third-party services', 'The website may rely on hosting and other service providers. When AI-powered layout suggestions are introduced, an AI provider will also process the room and furniture details needed to generate proposals. Those providers may have their own terms and privacy practices. Our handling of information is explained in the Privacy page.'],
   ['Changes to these terms', 'We may update these terms as the service changes. The “Last updated” date indicates when the current version was published. Your continued use of the service after an update means you accept the updated terms, to the extent permitted by law.'],
   ['Contact', 'Questions about these terms can be sent to contact@spaceswithnexus.com.'],
 ]
@@ -172,7 +172,7 @@ export function Terms() {
   return (
     <main>
       <PageHead title="Terms of Service">
-        The terms for using Spaces with Nexus. Please read them before relying on a plan or layout suggestion.
+        The terms for using Spaces with Nexus. Please read them before relying on a room plan or future AI-generated layout suggestion.
       </PageHead>
       <section className="wrap policy">
         <p className="fine-print">Last updated: 20 October 2026</p>
