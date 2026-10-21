@@ -21,7 +21,7 @@ const steps = [
   },
   {
     title: 'Explore a better arrangement',
-    body: 'Move and rotate pieces on the floor plan. AI-powered layout suggestions based on your room dimensions, furniture measurements and preferences are in development. The goal is to let you preview proposed positions, review fit issues and decide what works for you.',
+    body: 'Move and rotate pieces on the floor plan, then explore AI-powered layout ideas based on your room dimensions, furniture measurements and preferences. Review proposed positions, check fit issues and decide what works for you.',
   },
   {
     title: 'Refine your plan',
@@ -57,7 +57,7 @@ export function HowItWorks() {
 const principles = [
   ['Designed around real spaces', 'Useful room planning starts with the dimensions of the room and the furniture that needs to live in it. Spaces with Nexus is built around those practical details, helping people move from vague ideas to layouts they can evaluate.'],
   ['Clarity before commitment', 'Whether you are refreshing a room, making space for work, or deciding where a new piece of furniture might go, planning ahead can make the next step more deliberate. We want the process to feel approachable without losing sight of the measurements that matter.'],
-  ['Technology with a practical purpose', 'Our planner combines a scaled floor plan and basic fit checks, with AI-powered layout suggestions in development. The goal is to help people explore options, not make decisions for them. Any future proposal will be something to review and refine.'],
+  ['Technology with a practical purpose', 'Our planner combines a scaled floor plan and basic fit checks with AI-powered layout ideas to help people explore options, not make decisions for them. Each suggestion is a starting point to review and refine.'],
   ['Built to keep improving', 'We are developing Spaces with Nexus around a straightforward belief: planning a space should be easier to understand and more useful in everyday life. We continue to refine the experience around the real decisions people face when arranging a room.'],
 ]
 
@@ -69,8 +69,8 @@ export function About() {
       </PageHead>
       <section className="wrap prose">
         <p>Our homes and workspaces have to do a lot. A room might need to make space for rest, work, storage, guests, or a new piece of furniture, often without changing its dimensions. Working out what fits can quickly become a frustrating cycle of guesswork, moving things, and starting again.</p>
-        <p>Spaces with Nexus was created to make that process more considered. We bring room measurements and furniture planning together, with AI-powered layout suggestions in development, so people can explore ideas for their actual space before committing time and effort to moving things around.</p>
-        <p>We believe good tools should make complex decisions easier to approach, while keeping people in control. Our planner turns dimensions into a scaled floor plan and helps identify basic fit issues. We’re working toward AI-generated alternatives based on room dimensions, furniture measurements and user preferences. These suggestions will be starting points to review, not instructions to follow blindly.</p>
+        <p>Spaces with Nexus was created to make that process more considered. We bring room measurements, furniture planning and AI-powered layout ideas together, so people can explore possibilities for their actual space before committing time and effort to moving things around.</p>
+        <p>We believe good tools should make complex decisions easier to approach, while keeping people in control. Our planner turns dimensions into a scaled floor plan and helps identify basic fit issues. AI-generated alternatives based on room dimensions, furniture measurements and user preferences offer starting points to review, not instructions to follow blindly.</p>
         <p>Our focus is practical: make room planning clearer, more accessible, and more useful in everyday life. We are building Spaces with Nexus with that purpose in mind, and improving the experience as we learn what helps people plan their spaces with greater confidence.</p>
       </section>
       <section className="wrap gaps">
@@ -125,7 +125,7 @@ export function Examples() {
   return (
     <main className="examples-page">
       <PageHead title="Real rooms. Real-life decisions.">
-        You do not need to be an interior designer to make a room work better. Start with your measurements, explore furniture arrangements, and look ahead to AI-powered suggestions tailored to your space and goals.
+        You do not need to be an interior designer to make a room work better. Start with your measurements, explore furniture arrangements, and find AI-powered ideas tailored to your space and goals.
       </PageHead>
       <section className="wrap examples-intro">
         <p className="eyebrow">A few ways to use the planner</p>
@@ -158,7 +158,7 @@ export function Examples() {
 const termsSections = [
   ['Using the planner', 'Spaces with Nexus helps you explore room dimensions, furniture placement and possible layouts. You may use it for personal, non-commercial room-planning purposes, subject to these terms and applicable law. You are responsible for the information you enter and for how you use the results.'],
   ['Measurements and real-world decisions', 'The floor plan and fit checks are planning aids, not a guarantee that furniture will fit or that a layout is safe or practical in the physical room. Measurements, product dimensions, doors, windows, sockets, access routes, ceiling height and other conditions may affect the result. Measure and verify important details yourself before buying, lifting, installing or moving anything.'],
-  ['AI layout suggestions', 'AI-powered layout suggestions are in development and are not connected yet. When introduced, the details you provide may be processed by our layout service and its AI provider to generate a proposal. Suggestions may be incomplete or unsuitable for your room and should be reviewed carefully. They will be optional ideas, not professional interior-design, architectural, engineering or safety advice.'],
+  ['AI layout suggestions', 'AI layout suggestions use the room dimensions, furniture details and goals you provide to generate proposed arrangements. Suggestions may be incomplete or unsuitable for your room and should be reviewed carefully. They are optional ideas, not professional interior-design, architectural, engineering or safety advice.'],
   ['Plans and your responsibility', 'Plans you save are stored in your browser on the device you use. You are responsible for keeping your own copies of important plans. Clearing browser data, changing browsers or using another device may make saved plans unavailable. Do not enter confidential or sensitive information into the planner or an AI prompt.'],
   ['Acceptable use', 'Do not misuse the service, attempt to disrupt its operation, bypass security, interfere with other users, introduce malicious code, or use the service unlawfully. We may restrict access where reasonably necessary to protect the service or its users.'],
   ['Ownership and service availability', 'Spaces with Nexus and its original site content, branding and software are protected by applicable intellectual-property laws. These terms do not transfer ownership of them to you. We may change, suspend or discontinue features as the service develops, and we do not guarantee uninterrupted availability or that every feature will always work on every device.'],
