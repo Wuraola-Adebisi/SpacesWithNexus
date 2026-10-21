@@ -40,8 +40,8 @@ const features = [
   },
   {
     number: '03',
-    title: 'Try another way',
-    body: 'Tell the planner what you are trying to change and get another layout idea to consider. You stay in charge of what works for you.',
+    title: 'Explore new possibilities',
+    body: 'AI-powered layout suggestions are in development. They’ll use your room dimensions, furniture measurements and preferences to help you explore another arrangement. You’ll stay in charge of what works for you.',
   },
 ]
 
@@ -105,7 +105,7 @@ export default function Home() {
           <p className="eyebrow">Room planning for real life</p>
           <h1>A little more room to live.</h1>
           <p className="lede">
-            Not sure where the bed should go, whether that new desk will fit, or how to make more room? Start with your measurements, try a few arrangements, and see what might work before you move a thing.
+            Not sure where the bed should go, whether that new desk will fit, or how to make more room? Plan around your room and furniture measurements, explore different arrangements, and look ahead to AI-powered layout suggestions designed around your goals.
           </p>
           <div className="hero-actions">
             <Link to="/workspace" className="btn btn-primary btn-lg">Plan your room</Link>
@@ -145,9 +145,9 @@ export default function Home() {
           <div className="wrap ai-grid">
             <div className="ai-copy">
               <p className="eyebrow">Think it through before you move it</p>
-              <h2>See what could change.</h2>
-              <p>Tell us what you want your room to do differently. The planner can suggest another arrangement based on your room size, furniture and what you have in mind.</p>
-              <p>Think of it as a starting point, not a set of instructions. Check the suggested layout, look out for fit warnings, and choose what makes sense for your home.</p>
+              <h2>AI-powered ideas for your space.</h2>
+              <p>Soon, you’ll be able to describe what you want your room to do differently and get AI-generated layout suggestions based on your room dimensions, furniture measurements and preferences.</p>
+              <p>AI suggestions are being developed as a starting point, not a set of instructions. When available, you’ll be able to review the proposed arrangement, check fit warnings and decide what makes sense for your home.</p>
               <Link to="/workspace" className="btn btn-primary">Explore a layout</Link>
             </div>
             <LayoutComparison />
